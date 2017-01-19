@@ -1,0 +1,24 @@
+{extends "email/en/common.html"}
+
+{block subject}New media grabbed{/block}
+
+{block emailbody}
+    <p>{$numStored} new media files (video &amp; images) have been fetched and saved from <b>{$source}</b>.</p>
+{if $numParked}
+    <p>I couldn't attribute {$numParked} file(s), which I left in the parking area
+    for manual processing..</p>
+{/if}
+{if $numErrors}
+    <p>I also found {$numErrors} errors, please check the logs for further
+    info.</p>
+{/if}
+{if $interrupted}
+    <p><b>However, grab was not completed.</b> Perhaps you moved out of reach,
+    you turned off your device or the router. I will resume operations when
+    you come back.</p>
+
+    <p>You can still have a look at what I was able to grab.</p>
+{else}
+    <p>Please have a look &amp; see if I did a good job.</p>
+{/if}
+{/block}

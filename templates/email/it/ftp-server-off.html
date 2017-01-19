@@ -1,0 +1,10 @@
+{extends "email/it/common.html"}
+
+{block subject}Accendi la app FTP service{/block}
+
+{block emailbody}
+    <p>Sento che sei qui in giro, ma non riesco a fare la scansione del
+    dispositivo <b>{$source}</b> perché il servizio FTP non è attivo.</p>
+
+    <p>Per favore attiva la app FTP Server: riproverò tra poco.</p>
+{/block}

@@ -1,0 +1,25 @@
+{extends "email/it/common.html"}
+
+{block subject}Nuove foto e video recuperati{/block}
+
+{block emailbody}
+    <p>ho appena recuperato {$numStored} nuovi file media (immagini e/o video) da <b>{$source}</b>.</p>
+{if $numParked}
+    <p>Non sono riuscito a collocare correttamente {$numParked} file, che ho
+    lasciato nell'area di parcheggio in attesa che vengano gestiti manualmente.</p>
+{/if}
+{if $numErrors}
+    <p>Ho anche incontrato {$numErrors} errori, ti invito a controllare i log
+    per dettagli.</p>
+{/if}
+{if $interrupted}
+    <p><b>Purtroppo non sono riuscito a completare l'operazione.</b> Forse ti sei
+    spostato fuori dalla rete, oppure hai spento il dispositivo o il router.
+    Ritenterò alla prossima occasione.</p>
+
+    <p>Puoi comunque provare a dare un'occhiata a quel che sono riuscito a
+    scaricare.</p>
+{else}
+    <p>Per favore da' un occhiata e vedi se ho fatto un buon lavoro!</p>
+{/if}
+{/block}

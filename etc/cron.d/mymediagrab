@@ -1,0 +1,2 @@
+# mymediagrab main cron job
+*/10 * * * * root /usr/local/bin/mymediagrab

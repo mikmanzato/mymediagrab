@@ -1,0 +1,9 @@
+{extends "email/it/common.html"}
+
+{block subject}Report MyMediaGrab{/block}
+
+{block emailbody}
+    <p>questo è il report di <b>MyMediaGrab</b> che si è appena concluso su <b>{$fqdn}</b>.</p>
+    <pre>{$report}</pre>
+    <p>Si prega di intraprendere le azioni che risultassero eventualmente necessarie.</p>
+{/block}
