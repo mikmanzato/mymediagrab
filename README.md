@@ -33,7 +33,7 @@ Also installed are:
   * default configuration files (if you use the "-c" option)
 
 I will soon release a puppet moudule which automates installation and
-configuration of Yabt.
+configuration of MyMediaGrab.
 
 Uninstallation
 --------------
