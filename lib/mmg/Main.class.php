@@ -29,6 +29,8 @@ use mm\System;
 //------------------------------------------------------------------------------
 abstract class Main
 {
+	const VERSION="1.0.0";
+
 	public static $confDir = NULL;
 	public static $statusDir = NULL;
 	public static $runDir = NULL;
@@ -104,6 +106,10 @@ abstract class Main
 					self::$consoleLogLevel = $logLevel;
 					self::$verbose = TRUE;
 					break;
+
+				case '--version':
+					echo self::VERSION."\n";
+					exit(0);
 
 				case '-v':
 				case '--verbose':

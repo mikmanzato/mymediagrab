@@ -113,7 +113,7 @@ class SourceDirIterator
 
 			if (!in_array($ext, self::$allowedExtensions)) {
 				// Unknown extension, register in log
-				Log::submit(LOG_WARNING, "Unknown file extension: $fpath");
+				Log::submit(LOG_DEBUG, "Unknown file extension: $fpath");
 				continue;
 			}
 
