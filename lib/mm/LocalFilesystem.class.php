@@ -28,7 +28,7 @@ class LocalFilesystem
 	//--------------------------------------------------------------------------
 	//! Factory method
 	//--------------------------------------------------------------------------
-	public static function build($location, $subdir)
+	public static function build($location, $subdir = NULL)
 	{
 		$pattern = '|^(file://)?(/.*)$|';
 		if (preg_match($pattern, $location, $regs))

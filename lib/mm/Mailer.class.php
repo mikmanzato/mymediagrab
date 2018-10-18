@@ -36,9 +36,9 @@ abstract class Mailer
 			$smtpHostname = $options['smtp_hostname'];
 
 		$mail = new \PHPMailer;
-		$mail->isSMTP();
+		$mail->IsSMTP();
 		$mail->Host = $smtpHostname;
-		$mail->setFrom($email->getFrom());
+		$mail->SetFrom($email->getFrom());
 
 		foreach ($email->getRecipients() as $recipient)
 			$mail->addAddress($recipient);
@@ -47,8 +47,8 @@ abstract class Mailer
 		$mail->Body = $email->getHtmlBody();
 		$mail->IsHTML(TRUE);
 
-		if (!$mail->send())
-			throw new MailerException("Can't send email message");
+		if (!$mail->Send())
+			throw new MailerException("Can't send email message: ".$mail->ErrorInfo);
 	}
 }
 

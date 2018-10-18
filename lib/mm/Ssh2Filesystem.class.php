@@ -34,7 +34,7 @@ class Ssh2Filesystem
 	//--------------------------------------------------------------------------
 	//! Factory method
 	//--------------------------------------------------------------------------
-	public static function build($location, $subdir)
+	public static function build($location, $subdir = NULL)
 	{
 		$pattern = '|^ssh2://(\w+):(\w+)@([\w-_.]+)(:(\d+))?(/.*)$|';
 		if (preg_match($pattern, $location, $regs)) {

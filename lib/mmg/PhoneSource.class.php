@@ -60,12 +60,11 @@ class PhoneSource
 		$inTheLan = FALSE;
 		try {
 			$result = Shell::exec($cmd, $output, $exitValue);
-			if ($exitValue == 0) {
-				Log::submit(LOG_DEBUG, "Device is in the LAN");
-				$inTheLan = TRUE;
-			}
+			Log::submit(LOG_DEBUG, "Device is in the LAN");
+			$inTheLan = TRUE;
 		}
 		catch (ShellException $e) {
+			Log::submit(LOG_DEBUG, "Device is not in the LAN");
 			return FALSE;
 		}
 

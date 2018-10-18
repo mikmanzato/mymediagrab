@@ -399,7 +399,7 @@ class FtpFilesystem
 		$realPath = $this->_realPath($path);
 		Log::submit(LOG_DEBUG, "FTP: Deleting directory: '$realPath'");
 
-		if (!ftp_rmdir($this->connection, $realPath))
+		if (!@ftp_rmdir($this->connection, $realPath))
 			throw new FtpFilesystemException("FTP failed to delete remote directory: $realPath");
 	}
 

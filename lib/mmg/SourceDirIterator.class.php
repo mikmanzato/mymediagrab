@@ -81,8 +81,14 @@ class SourceDirIterator
 							$hasHidden = TRUE;
 					}
 //					var_dump($entries);
-					if (($hasHidden && count($entries) == 2) || (!$hasHidden && count($entries) == 0))
-						$this->location->rmdir($this->dir);
+					if (($hasHidden && count($entries) == 2) || (!$hasHidden && count($entries) == 0)) {
+						try {
+							$this->location->rmdir($this->dir);
+						}
+						catch (\Exception $e) {
+							Log::submit(LOG_DEBUG, "Could not remove empty directory '{$this->dir}': ".$e->getMessage());
+						}
+					}
 				}
 
 				return NULL;
@@ -112,8 +118,8 @@ class SourceDirIterator
 			}
 
 			if (!in_array($ext, self::$allowedExtensions)) {
-				// Unknown extension, register in log
-				Log::submit(LOG_DEBUG, "Unknown file extension: $fpath");
+				// File extension not recognized. Avoid cluttering the log file.
+				//~ Log::submit(LOG_DEBUG, "Unknown file extension: $fpath");
 				continue;
 			}
 

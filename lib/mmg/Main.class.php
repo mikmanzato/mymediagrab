@@ -29,7 +29,7 @@ use mm\System;
 //------------------------------------------------------------------------------
 abstract class Main
 {
-	const VERSION="1.0.0";
+	const VERSION="1.0.1";
 
 	public static $confDir = NULL;
 	public static $statusDir = NULL;
